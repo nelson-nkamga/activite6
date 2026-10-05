@@ -8,27 +8,23 @@
             Padding="30,0"
             Spacing="16">
 
-            <Label
-                Text="Nom"
-                FontSize="32" />
-            
+            <Label Text="Nom" FontSize="32" />
             <Entry x:Name="NomEntry" Placeholder="Entrez votre nom" />
 
-            <Label
-                Text="Date de naissance!"
-                FontSize="16" />
+            <Label Text="Date de naissance" FontSize="16" />
             <DatePicker x:Name="DateNaissancePicker" />
 
             <Button
                 x:Name="btnCalculer"
                 Text="Calculer l'âge"
-                Clicked="OnCalculerClicked"/>
+                Clicked="OnCalculerClicked" />
+
             <Label
                 x:Name="lblResultat"
                 Text=""
-                FontSize="20" 
+                FontSize="20"
                 IsVisible="False" />
-                
+
         </VerticalStackLayout>
     </ScrollView>
 
