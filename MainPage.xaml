@@ -1,29 +1,36 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Atelier6.MainPage">
+             xmlns:vm="clr-namespace:Atelier6.ViewModels"
+             x:Class="Atelier6.MainPage"
+             x:DataType="vm:CalculateurViewModel">
+
+    <ContentPage.BindingContext>
+        <vm:CalculateurViewModel />
+    </ContentPage.BindingContext>
 
     <ScrollView>
-        <VerticalStackLayout
-            Padding="30,0"
-            Spacing="16">
+        <VerticalStackLayout Padding="30,0" Spacing="16">
 
             <Label Text="Nom" FontSize="32" />
-            <Entry x:Name="NomEntry" Placeholder="Entrez votre nom" />
+            <Entry Text="{Binding Nom, Mode=TwoWay}" Placeholder="Entrez votre nom" />
 
             <Label Text="Date de naissance" FontSize="16" />
-            <DatePicker x:Name="DateNaissancePicker" />
+            <DatePicker Date="{Binding DateNaissance, Mode=TwoWay}" />
 
-            <Button
-                x:Name="btnCalculer"
-                Text="Calculer l'âge"
-                Clicked="OnCalculerClicked" />
+            <HorizontalStackLayout Spacing="12">
+                <Button Text="Calculer l'âge" Command="{Binding CalculerCommand}" />
+                <Button Text="Réinitialiser" Command="{Binding ResetCommand}" />
+            </HorizontalStackLayout>
 
-            <Label
-                x:Name="lblResultat"
-                Text=""
-                FontSize="20"
-                IsVisible="False" />
+            <Label Text="{Binding MessageErreur}"
+                   TextColor="Red"
+                   FontSize="14"
+                   IsVisible="{Binding IsErrorVisible}" />
+
+            <Label Text="{Binding Resultat}"
+                   FontSize="20"
+                   IsVisible="{Binding IsResultatVisible}" />
 
         </VerticalStackLayout>
     </ScrollView>

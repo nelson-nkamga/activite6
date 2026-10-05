@@ -1,6 +1,6 @@
 using System.Windows.Input;
 
-namespace CalculateurAge.ViewModels;
+namespace Atelier6.ViewModels;
 
 public class RelayCommand : ICommand
 {

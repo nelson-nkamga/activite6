@@ -1,7 +1,7 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace CalculateurAge.ViewModels;
+namespace Atelier6.ViewModels;
 
 public class BaseViewModel : INotifyPropertyChanged
 {
