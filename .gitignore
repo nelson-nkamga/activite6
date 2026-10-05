@@ -1,0 +1,46 @@
+# Build outputs
+bin/
+obj/
+[Bb]uild/
+[Bb]uilds/
+
+# Visual Studio / VS Code
+.vs/
+.vscode/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# MAUI / .NET
+*.apk
+*.aab
+*.ipa
+*.app
+*.dSYM/
+*.keystore
+*.pfx
+*.p12
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Local tooling
+*.log
+
+# Android / iOS generated files
+*.iml
+.idea/
+*.orig
+
+# NuGet
+packages/
+*.nupkg
+*.snupkg
+project.lock.json
+
+# Dotnet publish / test results
+TestResults/
+coverage/
+*.trx
