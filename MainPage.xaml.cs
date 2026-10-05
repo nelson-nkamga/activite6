@@ -2,33 +2,26 @@
 
 public partial class MainPage : ContentPage
 {
-	int count = 0;
+    public MainPage()
+    {
+        InitializeComponent();
+    }
 
-	public MainPage()
-	{
-		InitializeComponent();
-	}
+    private async void OnCalculerClicked(object sender, EventArgs e)
+    {
+        if (string.IsNullOrWhiteSpace(NomEntry.Text))
+        {
+            await DisplayAlert("Erreur", "Veuillez entrer un nom valide.", "OK");
+            return;
+        }
 
-	private void OnCalculerClicked(object sender, EventArgs e)
-	{
-		count++;
+        var dateNaissance = DateNaissancePicker.Date;
+        var age = DateTime.Today.Year - dateNaissance.Year;
 
-		if (string.IsNullOrWhiteSpace(NomEntry.Text))
-		{
-			DisplayAlert("Erreur", "Veuillez entrer votre nom.", "OK");
-			return;
-		}
-		
-		DateTime d = DateNaissancePicker.Date;
-		int age = DateTime.Now.Year - d.Year;
-		if (DateTime.Now.DayOfYear < d.DayOfYear)
-		{
-			age--;
-		}
+        if (dateNaissance.Date > DateTime.Today.AddYears(-age))
+            age--;
 
-		lblResultat.Text = $"L'âge de {NomEntry.Text} est {age} ans.";
-		lblResultat.IsVisible = true;
-
-	}
+        lblResultat.Text = $"Bonjour {NomEntry.Text}, vous avez {age} ans.";
+        lblResultat.IsVisible = true;
+    }
 }
-
